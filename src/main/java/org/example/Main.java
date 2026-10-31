@@ -2,6 +2,25 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Directory project = DemoProject.create();
+
+        SecurityAuditVisitor security = new SecurityAuditVisitor();
+        project.accept(security);
+        System.out.println(security.report());
+        System.out.println();
+
+        ProjectStatisticsVisitor statistics = new ProjectStatisticsVisitor();
+        project.accept(statistics);
+        System.out.println(statistics.report());
+        System.out.println();
+
+        QualityGateVisitor quality = new QualityGateVisitor();
+        project.accept(quality);
+        System.out.println(quality.report());
+        System.out.println();
+
+        ComplianceVisitor compliance = new ComplianceVisitor();
+        project.accept(compliance);
+        System.out.println(compliance.report());
     }
 }
