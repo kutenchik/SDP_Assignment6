@@ -1,0 +1,34 @@
+SECURITY AUDIT
+Critical issues: 5
+PaymentService.java: hardcoded credentials
+PaymentService.java: high-risk source (complexity > 20)
+application.properties: exposed credentials
+application.properties: insecure configuration
+pom.xml: vulnerable dependency legacy-payment-sdk
+
+PROJECT STATISTICS
+Total files: 5
+Lines of code: 410
+Source files: 2
+Test files: 1
+Number of tests: 6
+Dependencies: 2
+Average complexity: 16.00
+Test/source ratio: 0.50
+
+QUALITY GATE
+Security: FAIL
+Complexity: FAIL
+Tests: PASS
+FINAL RESULT: FAILED
+
+COMPLIANCE CHECK
+FAIL
+PaymentService.java: credentials must not be exposed
+application.properties: credentials must not be exposed
+pom.xml: prohibited dependency legacy-payment-sdk
+pom.xml: missing version for logging-library
+Production module users has no tests
+
+TECHNICAL DEBT
+Estimated remediation time: 600 minutes
